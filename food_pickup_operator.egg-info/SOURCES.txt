@@ -1,0 +1,8 @@
+setup.py
+food_pickup_operator/__init__.py
+food_pickup_operator/start_page.py
+food_pickup_operator.egg-info/PKG-INFO
+food_pickup_operator.egg-info/SOURCES.txt
+food_pickup_operator.egg-info/dependency_links.txt
+food_pickup_operator.egg-info/requires.txt
+food_pickup_operator.egg-info/top_level.txt
