@@ -13,3 +13,4 @@ from food_pickup_operator.general import *
 from food_pickup_operator.start_page import *
 from food_pickup_operator.home_page import *
 from food_pickup_operator.stall_page import *
+from food_pickup_operator.recommendation_filler import *
