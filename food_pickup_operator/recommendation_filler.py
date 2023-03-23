@@ -55,3 +55,11 @@ def setLactose(driver, Lactose: str, place):
     #place = "recommendation-lactose", "lactose"
     LactoseInput = Select(driver.find_element(By.ID,place))
     LactoseInput.select_by_value(Lactose)
+
+def toggle_language(driver):
+    toggle_language_button = driver.find_element(By.ID, "toggle-language")
+    toggle_language_button.click()
+    
+def make_way(driver, open: bool):
+    if (open): driver.get('http://127.0.0.1:8000/move-out/')
+    else: driver.get('http://127.0.0.1:8000/start/')

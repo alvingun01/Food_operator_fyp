@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from food_pickup_operator.stall_page import fill_quantity, submit_order,fill_quantity_non_recommendation
 
 def search(driver, keyword: str):
     search_input = driver.find_element(By.ID, 'search')
@@ -20,6 +21,8 @@ def close_filter(driver):
     close_filter.click()
 
 def open_cart(driver):
+    try: close_cart(driver)
+    except: pass
     open_cart_button = driver.find_element(By.ID, 'cart-modal-open-button')
     open_cart_button.click()
 
@@ -39,3 +42,15 @@ def checkout(driver):
     open_cart(driver)
     checkout_button = driver.find_element(By.ID, 'checkout-button')
     checkout_button.click()
+
+def back(driver):
+    back_button = driver.find_element(By.ID, 'back-button')
+    back_button.click()
+
+def cancel_order(driver, menu_name: str):
+    open_cart(driver)
+    order_menu_card = None
+    order_menu_card = driver.find_element(By.PARTIAL_LINK_TEXT, menu_name)
+    order_menu_card.click()
+    fill_quantity_non_recommendation(driver, 0)
+    submit_order(driver)
