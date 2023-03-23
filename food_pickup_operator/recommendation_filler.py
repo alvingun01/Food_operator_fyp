@@ -2,59 +2,68 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
-def setMinPrice(driver, price: int, place):
+def setMinPrice(driver, price: int):
     #place = "recommendation-min-price", "min-price"
-    minPriceInput = driver.find_element(By.ID, place)
+    try: minPriceInput = driver.find_element(By.ID, "min-price")
+    except : minPriceInput = driver.find_element(By.ID, "recommendation-min-price")
     minPriceInput.clear()
     minPriceInput.send_keys(str(price))
 
-def setMaxPrice(driver, price: int, place):
+def setMaxPrice(driver, price: int):
     #place = "recommendation-max-price", "max-price"
-    maxPriceInput = driver.find_element(By.ID, place)
+    try: maxPriceInput = driver.find_element(By.ID, "max-price")
+    except : maxPriceInput = driver.find_element(By.ID, "recommendation-max-price")
     maxPriceInput.clear()
     maxPriceInput.send_keys(str(price))
 
-def setCategory(driver, cate: str,place):
+def setCategory(driver, cate: str,):
     #cate = "All","Japanese","Chinese","Western","Arabian","Indian"
     #place = "recommendation-category", "category"
-    categoryInput = Select(driver.find_element(By.ID,place))
+    try: categoryInput = Select(driver.find_element(By.ID, "category"))
+    except : categoryInput = Select(driver.find_element(By.ID, "recommendation-category"))
     categoryInput.select_by_value(cate)
 
-def setSpicy(driver, spicy: str, place):
+def setSpicy(driver, spicy: str):
     #spicy = "All", "Non-Spicy", "Spicy"
     #place = "recommendation-hot", "hot"
-    spicyInput = Select(driver.find_element(By.ID,place))
+    try: spicyInput = Select(driver.find_element(By.ID, "hot"))
+    except : spicyInput = Select(driver.find_element(By.ID, "recommendation-hot"))
     spicyInput.select_by_value(spicy)
 
-def setVegetarian(driver, vegetarian: str, place):
+def setVegetarian(driver, vegetarian: str):
     #vegetarian = "All", "Non-Vegetarian", "Vegetarian"
     #place = "recommendation-vegetarian", "vegetarian"
-    vegetarianInput = Select(driver.find_element(By.ID,place))
+    try: vegetarianInput = Select(driver.find_element(By.ID, "vegetarian"))
+    except : vegetarianInput = Select(driver.find_element(By.ID, "recommendation-vegetarian"))
     vegetarianInput.select_by_value(vegetarian)
 
-def setHalal(driver, halal: str, place):
+def setHalal(driver, halal: str):
     #halal = "All", "Non-Halal", "Halal"
     #place = "recommendation-halal", "halal"
-    halalInput = Select(driver.find_element(By.ID,place))
+    try: halalInput = Select(driver.find_element(By.ID, "halal"))
+    except : halalInput = Select(driver.find_element(By.ID, "recommendation-halal"))
     halalInput.select_by_value(halal)
 
-def setPeanut(driver, peanut: str, place):
+def setPeanut(driver, peanut: str):
     #peanut = "All", "Contains Peanut", "No Peanut"
     #place = "recommendation-peanut", "peanut"
-    peanutInput = Select(driver.find_element(By.ID,place))
+    try: peanutInput = Select(driver.find_element(By.ID, "peanut"))
+    except : peanutInput = Select(driver.find_element(By.ID, "recommendation-peanut"))
     peanutInput.select_by_value(peanut)
 
-def setShrimp(driver, Shrimp: str, place):
-    #Shrimp = "All", "Contains Shrimp", "No Shrimp"
+def setShrimp(driver, shrimp: str):
+    #shrimp = "All", "Contains shrimp", "No shrimp"
     #place = "recommendation-shrimp", "shrimp"
-    ShrimpInput = Select(driver.find_element(By.ID,place))
-    ShrimpInput.select_by_value(Shrimp)
+    try: shrimpInput = Select(driver.find_element(By.ID, "shrimp"))
+    except : shrimpInput = Select(driver.find_element(By.ID, "recommendation-shrimp"))
+    shrimpInput.select_by_value(shrimp)
     
-def setLactose(driver, Lactose: str, place):
-    #Lactose = "All", "Contains Lactose", "No Lactose"
+def setLactose(driver, lactose: str, place):
+    #lactose = "All", "Contains lactose", "No lactose"
     #place = "recommendation-lactose", "lactose"
-    LactoseInput = Select(driver.find_element(By.ID,place))
-    LactoseInput.select_by_value(Lactose)
+    try: lactoseInput = Select(driver.find_element(By.ID, "lactose"))
+    except : lactoseInput = Select(driver.find_element(By.ID, "recommendation-lactose"))
+    lactoseInput.select_by_value(lactose)
 
 def toggle_language(driver):
     toggle_language_button = driver.find_element(By.ID, "toggle-language")
